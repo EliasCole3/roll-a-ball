@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
 
 	private Rigidbody rb;
 	private int count;
+	private GameObject ramp;
 
 	void Start()
 	{
@@ -17,6 +18,8 @@ public class PlayerController : MonoBehaviour {
 		count = 0;
 		SetCountText();
 		winText.text = "";
+		ramp = GameObject.Find("Ramp");
+		ramp.SetActive(false);
 	}
 
 	void FixedUpdate () 
@@ -45,6 +48,7 @@ public class PlayerController : MonoBehaviour {
 		if(count >= 11)
 		{
 			winText.text = "You Win!";
+			ramp.SetActive(true);
 		}
 	}
 
